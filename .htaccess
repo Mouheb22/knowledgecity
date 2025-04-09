@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /knowledgeCity/
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_URI} !^/knowledgeCity/public/
+RewriteRule ^(.*)$ api/index.php [L,QSA]
